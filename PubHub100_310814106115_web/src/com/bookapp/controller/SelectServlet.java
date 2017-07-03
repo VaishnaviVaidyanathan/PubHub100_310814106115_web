@@ -1,7 +1,5 @@
 package com.bookapp.controller;
 
-import java.io.IOException;
-import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -15,7 +13,6 @@ import com.bookapp.dao.BookDAO;
 import com.bookapp.model.Book;
 
 
-
 @WebServlet("/SelectServlet")
 public class SelectServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -27,7 +24,7 @@ public class SelectServlet extends HttpServlet {
     }
 
 	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response){
 		// TODO Auto-generated method stub
 		String name = request.getParameter("name");
 		Book book = new Book();
@@ -46,7 +43,7 @@ public class SelectServlet extends HttpServlet {
 				response.sendRedirect("home.jsp");
 
 			}
-		} catch (ClassNotFoundException | SQLException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

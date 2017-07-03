@@ -25,7 +25,7 @@ public class SaveServlet extends HttpServlet {
     }
 
 	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) {
 		String name = request.getParameter("name");
 		String price =request.getParameter("price");
 		int priceint=Integer.parseInt(price);
@@ -36,13 +36,10 @@ public class SaveServlet extends HttpServlet {
 		try {
 			dao.save(book);
 			response.sendRedirect("home.jsp");
-		} catch (ClassNotFoundException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		} 
 	}
 	}
 

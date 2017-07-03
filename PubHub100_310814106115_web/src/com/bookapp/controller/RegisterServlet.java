@@ -21,7 +21,7 @@ public class RegisterServlet extends HttpServlet {
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+			 {
 		// TODO Auto-generated method stub
 		String name = request.getParameter("name");
 		String email_id = request.getParameter("email_id");
@@ -33,17 +33,14 @@ public class RegisterServlet extends HttpServlet {
 		UserDAO dao = new UserDAO();
 		try {
 			dao.register(user);
-		} catch (ClassNotFoundException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		} 
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+			 {
 		// TODO Auto-generated method stub
 	//	doGet(request,response);
 		String name = request.getParameter("name");
@@ -57,13 +54,10 @@ public class RegisterServlet extends HttpServlet {
 		try {
 			dao.register(user);
 			response.sendRedirect("login.jsp");
-		} catch (ClassNotFoundException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		} 
 	}
 
 }
